@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Linking, ScrollView } from 'react-native';
 
 export default function App() {
   return (
@@ -10,10 +10,17 @@ export default function App() {
       />
       <Text style={styles.name}>Joshua Paza</Text>
       <Text style={styles.email}>pazajoshua@gmail.com</Text>
-      <Text style={styles.question}>Why did you want to learn mobile app development?</Text>
-      <Text style={styles.answer}>
-        I wanted to learn mobile app development because I've always been facinated with the innerworkings of tech and mobile applications being a huge factor of feeding this fascination of mine, I thought it would be a great opportunity to learn.
-      </Text>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => { Linking.openURL('https://joshuapaza.weebly.com/')}}>
+        <Text>Check out my website!</Text>
+      </TouchableOpacity>
+      <ScrollView>
+        <Text style={styles.question}>Why did you want to learn mobile app development?</Text>
+        <Text style={styles.answer}>
+          I wanted to learn mobile app development because I've always been facinated with the innerworkings of tech and mobile applications being a huge factor of feeding this fascination of mine, I thought it would be a great opportunity to learn.
+        </Text>
+      </ScrollView>
       <StatusBar style="auto" />
     </View>
   );
@@ -31,6 +38,7 @@ const styles = StyleSheet.create({
     height: 170,
     borderRadius: 99,
     margin: 10,
+    marginTop: 40,
   },
   name: {
     fontSize: 40,
